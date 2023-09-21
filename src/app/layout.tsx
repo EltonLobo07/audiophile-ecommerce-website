@@ -2,7 +2,9 @@ import "~/src/app/globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import React from "react";
-import { helpers } from "~/lib/helpers";
+import { helpers } from "~/src/helpers";
+import { RootHeader } from "../components/RootHeader";
+import { RootFooter } from "../components/RootFooter";
 
 const manrope = Manrope({
 	subsets: ["latin"],
@@ -30,9 +32,24 @@ export default function RootLayout(props: Props) {
 			)}
 		>
 			<body 
-				className = "h-full"
+				className = {helpers.formatClassName(
+					`
+						h-full
+						flex flex-col
+					`
+				)}
 			>
-				{props.children}
+				<RootHeader />
+				<main
+					className = {helpers.formatClassName(
+						`
+							flex-grow
+						`
+					)}
+				>
+					{props.children}
+				</main>
+				<RootFooter />
 			</body>
 		</html>
 	);

@@ -1,4 +1,4 @@
-import { helpers } from "~/lib/helpers";
+import { helpers } from "~/src/helpers";
 import { twStyles } from "~/src/app/tw-styles";
 
 export default function Page() {
@@ -11,7 +11,7 @@ export default function Page() {
 				`
 			)}
 		>
-			Hello world
+			main content
 		</div>
 	);
 }

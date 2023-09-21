@@ -1,0 +1,54 @@
+import { Facebook } from "~/src/components/icons/Facebook";
+import { Instagram } from "~/src/components/icons/Instagram";
+import { Twitter } from "~/src/components/icons/Twitter";
+
+type Props = Omit<JSX.IntrinsicElements["nav"], "children">;
+
+export function SocialMediaNav(props: Props) {
+    const socialMediaIconsCommonName = "w-6 h-6 cursor-pointer text-white hover:text-dark-orange";
+    const anchorTargetAttr = "_blank";
+
+    return (
+        <nav
+            {...props}
+        >
+            <ul
+                className = "flex gap-x-4"
+            >
+                <li>
+                    <a
+                        href = "https://www.facebook.com/"
+                        target = {anchorTargetAttr}
+                    >
+                        <Facebook
+                            aria-label = "audiophile on Facebook"
+                            className = {socialMediaIconsCommonName}
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href = "https://twitter.com/"
+                        target = {anchorTargetAttr}
+                    >
+                        <Twitter
+                            aria-label = "audiophile on Twitter"
+                            className = {socialMediaIconsCommonName}
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href = "https://www.instagram.com/"
+                        target = {anchorTargetAttr}
+                    >
+                        <Instagram 
+                            aria-label = "audio on Instagram"
+                            className = {socialMediaIconsCommonName}
+                        />
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    );
+}
