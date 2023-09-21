@@ -16,4 +16,48 @@
       -webkit-hyphens: auto;
       hyphens: auto;
   }
+
+  .cfont-h1 {
+    @apply font-sans font-bold text-[3.5rem] uppercase leading-[3.625rem] tracking-[0.125rem];
+  }
+
+  .cfont-h2 {
+    @apply font-sans font-bold text-[2.5rem] uppercase leading-[2.75rem] tracking-[0.09375rem];
+  }
+
+  .cfont-h2-3 {
+    @apply font-sans font-bold text-[2.25rem] uppercase leading-[2.5rem] tracking-[0.080625rem];
+  }
+
+  .cfont-h3 {
+    @apply font-sans font-bold text-[2rem] uppercase leading-[2.25rem] tracking-[0.071875rem];
+  }
+
+  .cfont-h4 {
+    @apply font-sans font-bold text-[1.75rem] uppercase leading-[2.375rem] tracking-[0.125rem];
+  }
+
+  .cfont-h4-5 {
+    @apply font-sans font-bold text-[1.75rem] uppercase leading-[2.390625rem] tracking-[0.0625rem];
+  }
+
+  .cfont-h5 {
+    @apply font-sans font-bold text-[1.5rem] uppercase leading-[2.0625rem] tracking-[0.10625rem];
+  }
+
+  .cfont-h6 {
+    @apply font-sans font-bold text-[1.125rem] uppercase leading-[1.5rem] tracking-[0.08125rem];
+  }
+
+  .cfont-overline {
+    @apply font-sans font-normal text-[0.875rem] uppercase leading-[1.1875rem] tracking-[0.625rem];
+  }
+
+  .cfont-subtitle {
+    @apply font-sans font-bold text-[0.8125rem] uppercase leading-[1.5625rem] tracking-[0.0625rem];
+  }
+
+  .cfont-body {
+    @apply font-sans font-medium text-[0.9375rem] leading-[1.5625rem];
+  }
 }

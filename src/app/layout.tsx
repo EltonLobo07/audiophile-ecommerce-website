@@ -1,10 +1,10 @@
-import "~/src/app/globals.css";
+import "~/app/globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import React from "react";
-import { helpers } from "~/src/helpers";
-import { RootHeader } from "../components/RootHeader";
-import { RootFooter } from "../components/RootFooter";
+import { helpers } from "~/helpers";
+import { RootHeader } from "~/components/RootHeader";
+import { RootFooter } from "~/components/RootFooter";
 
 const manrope = Manrope({
 	subsets: ["latin"],

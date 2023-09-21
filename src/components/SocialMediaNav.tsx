@@ -1,6 +1,6 @@
-import { Facebook } from "~/src/components/icons/Facebook";
-import { Instagram } from "~/src/components/icons/Instagram";
-import { Twitter } from "~/src/components/icons/Twitter";
+import { Facebook } from "~/components/icons/Facebook";
+import { Instagram } from "~/components/icons/Instagram";
+import { Twitter } from "~/components/icons/Twitter";
 
 type Props = Omit<JSX.IntrinsicElements["nav"], "children">;
 

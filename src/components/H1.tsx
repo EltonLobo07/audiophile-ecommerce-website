@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
-import { VisuallyHidden } from "~/src/components/VisuallyHidden";
-import { RootLogo } from "~/src/components/icons/RootLogo";
+import { VisuallyHidden } from "~/components/VisuallyHidden";
+import { RootLogo } from "~/components/icons/RootLogo";
 
 type Props = Omit<JSX.IntrinsicElements["h1"], "children">;
 

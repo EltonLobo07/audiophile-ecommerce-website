@@ -1,17 +1,20 @@
+import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import { helpers } from "~/helpers";
 
-type Props = JSX.IntrinsicElements["div"];
+type Props = Parameters<typeof Link>[0];
 
-export function MaxWidthContainer(props: Props) {
+export function BtnLikeLink(props: Props) {
     return (
-        <div
+        <Link
             {...props}
             className = {twMerge(
                 helpers.formatClassName(
                     `
-                        max-w-screen-laptopAndUp mx-auto
-                        px-[24px] tabAndUp:px-[40px] laptopAndUp:px-[16px]
+                        px-[1.875rem]
+                        py-[0.9375rem]
+                        text-white
+                        cfont-subtitle
                     `
                 ),
                 props.className

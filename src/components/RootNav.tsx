@@ -1,7 +1,6 @@
 import { twMerge } from "tailwind-merge";
-import { twStyles } from "~/src/app/tw-styles";
-import { CustomLink } from "~/src/components/CustomLink";
-import { dataHelpers } from "~/src/data/data-helpers";
+import { CustomLink } from "~/components/CustomLink";
+import { dataHelpers } from "~/data/data-helpers";
 
 type Props = Omit<JSX.IntrinsicElements["nav"], "children"> & {unorderedListClassName?: string};
 
@@ -16,7 +15,7 @@ export async function RootNav(props: Props) {
         <nav
             {...navProps}
             className = {twMerge(
-                twStyles.SubTitle,
+                "cfont-subtitle",
                 props.className
             )}
         >

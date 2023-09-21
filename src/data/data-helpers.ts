@@ -3,9 +3,21 @@ import { z } from "zod";
 import { schemas } from "./schemas";
 
 const DATA_FILE_PATH = `${process.cwd()}/src/data/data.json`;
+const SCREEN = ["desktop", "tablet", "mobile"] as const;
 
+type Screen = (typeof SCREEN)[number];
 type Products = z.infer<typeof schemas.products>;
 type Product = Products[number];
+
+function getScreenSpecificPaths<
+    TKeys extends Screen
+>(keys: readonly TKeys[], url: string): Record<TKeys, string> {
+    const output: Partial<Record<TKeys, string>> = {};
+    for (const key of keys) {
+        output[key] = url.replaceAll("%r", key);
+    }
+    return output as Record<TKeys, string>;
+}
 
 async function getProducts(): Promise<Products> {
     return schemas.products.parse(JSON.parse(await fs.readFile(DATA_FILE_PATH, "utf-8")));
@@ -32,6 +44,37 @@ async function getCategories(): Promise<string[]> {
     return result.sort();
 }
 
+async function getHomePageProductHighlight(): 
+    Promise<
+        Pick<
+            Product, 
+            | "new"
+            | "name"
+            | "slug"
+            | "category"
+        > & {
+            images: Record<Screen, string>,
+            shortDescription: string
+        }
+    > 
+{
+    const products = await getProducts();
+    const targetProductSlug = "xx99-mark-two-headphones";
+    const product = products.find(product => product.slug === targetProductSlug);
+    if (!product) {
+        throw new Error(`Product associated to slug "${targetProductSlug}" is absent`);
+    }
+    return {
+        ...product,
+        images: getScreenSpecificPaths(
+            SCREEN,
+            "/images/home/%r/hero.jpg"
+        ),
+        shortDescription: "Experience natural, life-like audio and exceptional build quality made for the passionate music enthusiast."
+    };
+}
+
 export const dataHelpers = {
-    getCategories
+    getCategories,
+    getHomePageProductHighlight
 };

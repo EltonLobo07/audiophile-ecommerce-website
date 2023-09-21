@@ -1,9 +1,8 @@
-import { helpers } from "~/src/helpers";
-import { MaxWidthContainer } from "~/src/components/MaxWidthContainer";
-import { RootNav } from "~/src/components/RootNav";
-import { H1 } from "./H1";
-import { twStyles } from "~/src/app/tw-styles";
-import { SocialMediaNav } from "~/src/components/SocialMediaNav";
+import { helpers } from "~/helpers";
+import { MaxWidthContainer } from "~/components/MaxWidthContainer";
+import { RootNav } from "~/components/RootNav";
+import { H1 } from "~/components/H1";
+import { SocialMediaNav } from "~/components/SocialMediaNav";
 
 export function RootFooter() {
     return (
@@ -68,8 +67,8 @@ export function RootFooter() {
                 >
                     <p
                         className = {helpers.formatClassName(
-                            `
-                                ${twStyles.Body}
+                            `   
+                                cfont-body
                                 text-argent
                                 laptopAndUp:max-w-[33.75rem]
                             `
@@ -109,7 +108,7 @@ export function RootFooter() {
                     <small
                         className = {helpers.formatClassName(
                             `
-                                ${twStyles.Body}
+                                cfont-body
                               text-argent
                                 capitalize
                             `
