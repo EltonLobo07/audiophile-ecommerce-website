@@ -35,7 +35,7 @@ export default function RootLayout(props: Props) {
 			<body 
 				className = {helpers.formatClassName(
 					`
-						h-full
+						min-h-full
 						flex flex-col
 					`
 				)}

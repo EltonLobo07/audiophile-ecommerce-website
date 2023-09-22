@@ -23,6 +23,9 @@ export function RootHeader() {
                     bg-chaos-black
                     text-white
                     flex-shrink-0
+                    sticky
+                    top-0 
+                    z-10
                 `
             )}
         >
