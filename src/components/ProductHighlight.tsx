@@ -5,8 +5,13 @@ import { helpers } from "~/helpers";
 import { BtnLikeLink } from "~/components/BtnLikeLink";
 import { MaxWidthContainer } from "~/components/MaxWidthContainer";
 import { CustomImage } from "~/components/CustomImage";
+import { twMerge } from "tailwind-merge";
 
-export async function ProductHighlight() {
+type Props = {
+    className?: string
+};
+
+export async function ProductHighlight(props: Props) {
     const product = await dataHelpers.getHomePageProductHighlight();
     const sectionTitle = "Today's highlighted product";
 
@@ -22,13 +27,16 @@ export async function ProductHighlight() {
     return (
         <section
             aria-label = {sectionTitle}
-            className = {helpers.formatClassName(
-                `
-                    relative
-                    text-wrap
-                    h-[31.9375rem] tabAndUp:h-[40rem] laptopAndUp:h-[39.5625rem]
-                    bg-chaos-black
-                `
+            className = {twMerge(
+                helpers.formatClassName(
+                    `
+                        relative
+                        text-wrap
+                        h-[31.9375rem] tabAndUp:h-[40rem] laptopAndUp:h-[39.5625rem]
+                        bg-chaos-black
+                    `
+                ),
+                props.className
             )}
         >
             <VisuallyHidden

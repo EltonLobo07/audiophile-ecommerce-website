@@ -11,6 +11,11 @@ const config: Config = {
       sans: ["var(--font-manrope)"]
     },
     screens: {
+      /*
+        Whenever you update this object make sure you check the literal values used in:
+          - RootCategoryCard
+          - CustomImage
+      */
       tabAndUp: "45rem", // 720px 
       laptopAndUp: "68.75rem" // 1100px
     },

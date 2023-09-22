@@ -74,7 +74,30 @@ async function getHomePageProductHighlight():
     };
 }
 
+async function getCategoryNamesAndImages(): Promise<{images: Record<Screen, string>, name: string}[]> {
+    const categoryNames = await getCategories();
+    const categoriesWithImages = new Set(["headphones", "earphones", "speakers"]);
+    const output: Awaited<ReturnType<typeof getCategoryNamesAndImages>> = [];
+    for (const categoryName of categoryNames) {
+        if (categoriesWithImages.has(categoryName)) {
+            output.push({
+                name: categoryName,
+                images: getScreenSpecificPaths(
+                    SCREEN,
+                    /*
+                        No "%r" in the string below to replace any screen dircetory as only one source
+                        will be used for all screen sizes
+                    */
+                    `/images/shared/desktop/category-thumbnail-${categoryName}.png`
+                )
+            });
+        }
+    }   
+    return output;
+}
+
 export const dataHelpers = {
     getCategories,
-    getHomePageProductHighlight
+    getHomePageProductHighlight,
+    getCategoryNamesAndImages
 };
