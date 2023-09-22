@@ -5,6 +5,7 @@ import React from "react";
 import { helpers } from "~/helpers";
 import { RootHeader } from "~/components/RootHeader";
 import { RootFooter } from "~/components/RootFooter";
+import { ShowModalTypeContextProvider } from "~/components/ShowModalTypeContextProvider";
 
 const manrope = Manrope({
 	subsets: ["latin"],
@@ -39,7 +40,9 @@ export default function RootLayout(props: Props) {
 					`
 				)}
 			>
-				<RootHeader />
+				<ShowModalTypeContextProvider>
+					<RootHeader />
+				</ShowModalTypeContextProvider>
 				<main
 					className = {helpers.formatClassName(
 						`

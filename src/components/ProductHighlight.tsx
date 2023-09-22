@@ -12,7 +12,7 @@ export async function ProductHighlight() {
 
     const commonCustomImgAndShadowClassName = helpers.formatClassName(
         `
-            max-w-[26.125rem]
+            max-w-[26rem]
             tabAndUp:max-w-[50.75rem]
             laptopAndUp:max-w-full
             mx-auto laptopAndUp:mx-0
