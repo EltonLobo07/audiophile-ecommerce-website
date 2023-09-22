@@ -1,5 +1,6 @@
 import { ProductAdvertisements } from "~/components/ProductAdvertisements";
 import { ProductHighlight } from "~/components/ProductHighlight";
+import { RootAbout } from "~/components/RootAbout";
 import { RootCategories } from "~/components/RootCategories";
 
 export default function Page() {
@@ -11,7 +12,12 @@ export default function Page() {
 			<RootCategories
 				className = "mb-[7.5rem] tabAndUp:mb-24 laptopAndUp:mb-[10.5rem]"
 			/>
-			<ProductAdvertisements />
+			<ProductAdvertisements 
+				className = "mb-[7.5rem] tabAndUp:mb-24 laptopAndUp:mb-[12.5rem]"
+			/>
+			<RootAbout 
+				className = "mb-[7.5rem] tabAndUp:mb-24 laptopAndUp:mb-[12.5rem]"
+			/>
 		</>
 	);
 }

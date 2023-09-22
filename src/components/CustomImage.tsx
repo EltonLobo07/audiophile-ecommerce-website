@@ -37,7 +37,7 @@ export function CustomImage(props: Props) {
             )}
         >
             <source 
-                media = {getMinWidthMediaQuery("68.75rem")}
+                media = {getMinWidthMediaQuery("69.375rem")}
                 srcSet = {props.images.desktop}
             />
             <source 

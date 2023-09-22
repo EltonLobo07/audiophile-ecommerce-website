@@ -63,7 +63,7 @@ export function RootCategoryCard(props: Props) {
                             src = {props.category.images.desktop}
                             alt = {nativeImgAlt}
                             className = {nativeImgClassName}
-                            sizes = "(min-width: 68.75rem) 13rem, 10.3125rem"
+                            sizes = "(min-width: 69.375rem) 13rem, 10.3125rem"
                         />
                     </div>
                 ) : (

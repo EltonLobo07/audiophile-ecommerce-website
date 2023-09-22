@@ -17,7 +17,7 @@ const config: Config = {
           - CustomImage
       */
       tabAndUp: "45rem", // 720px 
-      laptopAndUp: "68.75rem" // 1100px
+      laptopAndUp: "69.375rem" // 1110px
     },
     extend: {
       borderRadius: {

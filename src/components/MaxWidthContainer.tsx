@@ -11,7 +11,7 @@ export function MaxWidthContainer(props: Props) {
                 helpers.formatClassName(
                     `
                         max-w-screen-laptopAndUp mx-auto
-                        px-[24px] tabAndUp:px-[40px] laptopAndUp:px-[16px]
+                        px-[24px] tabAndUp:px-[40px] laptopAndUp:px-[8px]
                     `
                 ),
                 props.className
