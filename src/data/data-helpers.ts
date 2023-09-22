@@ -8,6 +8,14 @@ const SCREEN = ["desktop", "tablet", "mobile"] as const;
 type Screen = (typeof SCREEN)[number];
 type Products = z.infer<typeof schemas.products>;
 type Product = Products[number];
+type ProductToAdvertise = Record<
+    | "name"
+    | "slug"
+    | "category"
+    | "description",
+    string
+> & Record<"images", Record<Screen, string>>;
+
 
 function getScreenSpecificPaths<
     TKeys extends Screen
@@ -68,7 +76,7 @@ async function getHomePageProductHighlight():
         ...product,
         images: getScreenSpecificPaths(
             SCREEN,
-            "/images/home/%r/hero.jpg"
+            "/images/home/%r/hero.webp"
         ),
         shortDescription: "Experience natural, life-like audio and exceptional build quality made for the passionate music enthusiast."
     };
@@ -96,8 +104,56 @@ async function getCategoryNamesAndImages(): Promise<{images: Record<Screen, stri
     return output;
 }
 
+
+async function getProductsToAdvertise(): Promise<ProductToAdvertise[]> {
+    const products = await getProducts();
+    // Switch some product descriptions
+    const zx9SpeakerSlug: string = "zx9-speaker";
+    const productSlugToNewDescription = {
+        [zx9SpeakerSlug]: "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound"
+    };
+    const slugsOfProductToAdvertise = new Set([
+        zx9SpeakerSlug,
+        "zx7-speaker",
+        "yx1-earphones"
+    ]);
+    const productsToAdvertise: Awaited<ReturnType<typeof getProductsToAdvertise>> = [];
+    for (const curProduct of products) {
+        const curProductSlug = curProduct.slug; 
+        if (slugsOfProductToAdvertise.has(curProductSlug)) {
+            productsToAdvertise.push({
+                category: curProduct.category,
+                description: (
+                    curProductSlug in productSlugToNewDescription
+                    ? productSlugToNewDescription[curProductSlug]
+                    : curProduct.description
+                ),
+                name: curProduct.name,
+                slug: curProductSlug,
+                images: getScreenSpecificPaths(
+                    SCREEN,
+                    `/images/home/%r/${curProductSlug}.webp`
+                )
+            });
+        }
+    }
+    // This step is to match the figma file design. The view is order dependent
+    return productsToAdvertise.sort((p1, p2) => {
+        const p1Slug = p1.slug;
+        const p2Slug = p2.slug;
+        if (p1Slug > p2Slug) {
+            return -1;
+        } 
+        if (p1Slug < p2Slug) {
+            return 1;
+        }
+        return 0;
+    });
+}
+
 export const dataHelpers = {
     getCategories,
     getHomePageProductHighlight,
-    getCategoryNamesAndImages
+    getCategoryNamesAndImages,
+    getProductsToAdvertise
 };

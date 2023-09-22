@@ -30,6 +30,7 @@ export function CustomImage(props: Props) {
                 helpers.formatClassName(
                     `
                         relative
+                        inline-block
                     `
                 ),
                 props.nativePictureProps?.className
