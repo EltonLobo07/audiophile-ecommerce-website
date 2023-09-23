@@ -157,8 +157,8 @@ export async function ProductHighlight(props: Props) {
                         see product
                     </BtnLikeLink>
                 </div>
-            </MaxWidthContainer>
             <MaxWidthConstrainedDivider />
+            </MaxWidthContainer>
         </section>
     );
 }

@@ -151,9 +151,42 @@ async function getProductsToAdvertise(): Promise<ProductToAdvertise[]> {
     });
 }
 
+async function getProductsByCategory(category: string): 
+    Promise<
+        (
+            Pick<
+                Product,
+                | "name"
+                | "new"
+                | "description"
+                | "slug"
+            > & Record<"images", Record<Screen, string>>
+        )[]
+    > 
+{
+    const products = await getProducts();
+    return (
+        products
+            .filter(product => product.category === category)
+            .map(product => (
+                {
+                    name: product.name,
+                    description: product.description,
+                    new: product.new,
+                    slug: product.slug,
+                    images: getScreenSpecificPaths(
+                        SCREEN,
+                        `/images/products/${product.slug}/%r/category-page-preview.jpg`
+                    )
+                }
+            ))
+    );
+}
+
 export const dataHelpers = {
     getCategories,
     getHomePageProductHighlight,
     getCategoryNamesAndImages,
-    getProductsToAdvertise
+    getProductsToAdvertise,
+    getProductsByCategory
 };
