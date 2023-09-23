@@ -17,7 +17,7 @@ function removeInline<TObj extends object>(obj: TObj): Omit<TObj, "inline"> {
     return obj;
 }
 
-const VISUALLY_HIDDEN: React.CSSProperties = {
+export const VISUALLY_HIDDEN: React.CSSProperties = {
     display: "inline-block",
     position: "absolute",
     overflow: "hidden",

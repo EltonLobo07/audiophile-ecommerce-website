@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import { z } from "zod";
 import { schemas } from "./schemas";
+import { DeepReadonly } from "~/type-helpers";
 
 const DATA_FILE_PATH = `${process.cwd()}/src/data/data.json`;
 const SCREEN = ["desktop", "tablet", "mobile"] as const;
@@ -183,10 +184,57 @@ async function getProductsByCategory(category: string):
     );
 }
 
+export async function getProduct(args: DeepReadonly<{productSlug: string, category: string}>):
+    Promise<
+        | (
+            Omit<Product, "others"> & 
+            {
+                images: Record<Screen, string>,
+                gallery: Record<Screen, string>[],
+                others: {
+                    slug: string,
+                    name: string,
+                    category: string,
+                    images: Record<Screen, string>
+                }[]
+            }
+        )
+        | undefined
+    >
+{
+    const products = await getProducts();
+    const targetProduct = products.find(product => (
+        product.slug === args.productSlug &&
+        product.category === args.category
+    ));
+    if (!targetProduct) {
+        return;
+    }
+    return {
+        ...targetProduct,
+        images: getScreenSpecificPaths(
+            SCREEN,
+            `/images/products/${targetProduct.slug}/%r/product.jpg`
+        ),
+        gallery: new Array(3).fill(0).map((_value, idx) => getScreenSpecificPaths(
+            SCREEN,
+            `/images/products/${targetProduct.slug}/%r/gallery-${idx + 1}.jpg`
+        )),
+        others: targetProduct.others.map(otherProduct => ({
+            ...otherProduct,
+            images: getScreenSpecificPaths(
+                SCREEN,
+                `/images/shared/%r/${otherProduct.slug}.webp`
+            )
+        }))
+    };
+}
+
 export const dataHelpers = {
     getCategories,
     getHomePageProductHighlight,
     getCategoryNamesAndImages,
     getProductsToAdvertise,
-    getProductsByCategory
+    getProductsByCategory,
+    getProduct
 };

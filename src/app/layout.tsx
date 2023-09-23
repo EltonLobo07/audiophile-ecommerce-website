@@ -6,6 +6,7 @@ import { helpers } from "~/helpers";
 import { RootHeader } from "~/components/RootHeader";
 import { RootFooter } from "~/components/RootFooter";
 import { ShowModalTypeContextProvider } from "~/components/ShowModalTypeContextProvider";
+import { CartContextProvider } from "~/components/CartContextProvider";
 
 const manrope = Manrope({
 	subsets: ["latin"],
@@ -40,18 +41,20 @@ export default function RootLayout(props: Props) {
 					`
 				)}
 			>
-				<ShowModalTypeContextProvider>
-					<RootHeader />
-				</ShowModalTypeContextProvider>
-				<main
-					className = {helpers.formatClassName(
-						`
-							flex-grow
-						`
-					)}
-				>
-					{props.children}
-				</main>
+				<CartContextProvider>
+					<ShowModalTypeContextProvider>
+						<RootHeader />
+					</ShowModalTypeContextProvider>
+					<main
+						className = {helpers.formatClassName(
+							`
+								flex-grow
+							`
+						)}
+					>
+						{props.children}
+					</main>
+				</CartContextProvider>
 				<RootFooter />
 			</body>
 		</html>
