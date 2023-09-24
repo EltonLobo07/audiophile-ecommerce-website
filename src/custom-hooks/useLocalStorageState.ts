@@ -39,6 +39,8 @@ export function useSSRSafeLocalStorageState<TState extends Serializable>(args: A
 
     useEffect(() => {
         if (lsKeyRef.current !== lsKey) {
+            // This block won't run during the initial render
+            window.localStorage.removeItem(lsKeyRef.current);
             lsKeyRef.current = lsKey;
         }
         if (state === undefined) {
@@ -65,12 +67,6 @@ export function useSSRSafeLocalStorageState<TState extends Serializable>(args: A
             window.localStorage.setItem(concatPrefix(lsKeyRef.current), JSON.stringify(state));
         }
     }, [state, lsKey, clientInitialState, isState]);
-
-    useEffect(() => {
-        return () => {
-            window.localStorage.removeItem(concatPrefix(lsKeyRef.current));
-        };
-    }, []);
 
     return [state, setState] as const;
 }

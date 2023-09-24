@@ -1,7 +1,10 @@
 "use client";
 
+// import React from "react";
 import { Dialog } from "@headlessui/react";
 import { useShowModalTypeContext } from "~/custom-hooks/useShowModalTypeContext";
+import { CartModalContent } from "~/components/CartModalContent";
+import { MaxWidthContainer } from "./MaxWidthContainer";
 
 type Props = {
     rootHeader: JSX.Element,
@@ -10,6 +13,11 @@ type Props = {
 
 export function CustomModal(props: Props) {
     const [showModalType, setShowModalType] = useShowModalTypeContext();
+
+    const commonContentModalProps = {
+        Title: Dialog.Title,
+        Description: Dialog.Description
+    };
 
     return (
         <Dialog
@@ -23,18 +31,11 @@ export function CustomModal(props: Props) {
             <Dialog.Panel
                 className = "relative"
             >
-                <div
-                    className = "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white"
-                >
-                    <Dialog.Title>
-                        Test title
-                    </Dialog.Title>
-                    <Dialog.Description>
-                        Test description
-                    </Dialog.Description>
-                    {showModalType}
-                    <button>test</button>
-                </div>
+                {
+                    showModalType === "cart"
+                    ? <CartModalContent {...commonContentModalProps} />
+                    : null
+                }
                 <div
                     className = "fixed top-0 left-0 right-0"
                 >

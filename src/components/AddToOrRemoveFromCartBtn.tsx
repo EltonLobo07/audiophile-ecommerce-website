@@ -1,45 +1,18 @@
 "use client";
 
 import { twMerge } from "tailwind-merge";
-import { useCartContext } from "~/custom-hooks/useCartContext";
 import { helpers } from "~/helpers";
 
 type Props = {
-    productSlug: string,
+    productInCart: boolean,
+    onClick: () => void,
     className?: string
 };
 
 export function AddToOrRemoveFromCartBtn(props: Props) {
-    const [cart, setCart] = useCartContext();
-
-    if (cart === undefined) {
-        return (
-            <div>
-                Loading...
-            </div>
-        );
-    }
-
-    const handleClick = () => {
-        const newCart: string[] = [];
-        let productSlugFoundInCart = false;
-        for (let i = 0; i < cart.length; i += 1) {
-            const curInCartProductSlug = cart[i];
-            if (curInCartProductSlug === props.productSlug) {
-                productSlugFoundInCart = true;
-            } else {
-                newCart.push(curInCartProductSlug);
-            }
-        }
-        if (!productSlugFoundInCart) {
-            newCart.push(props.productSlug);
-        }
-        setCart(newCart);
-    };
-
     return (
         <button
-            onClick = {handleClick}
+            onClick = {props.onClick}
             className = {twMerge(
                 helpers.formatClassName(
                     `
@@ -53,7 +26,7 @@ export function AddToOrRemoveFromCartBtn(props: Props) {
                 props.className
             )}
         >
-            {`${cart.includes(props.productSlug) ? "remove from" : "add to"} cart`}
+            {`${props.productInCart ? "remove from" : "add to"} cart`}
         </button>
     );
 }

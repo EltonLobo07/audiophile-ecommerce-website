@@ -8,7 +8,7 @@ export function Plus(props: Props) {
             xmlns = "http://www.w3.org/2000/svg"
             fill = "none"
             stroke = "currentColor"
-            strokeWidth = "3"
+            strokeWidth = "1.5"
             viewBox = "0 0 24 24"
             {...props}
             className = {twMerge(

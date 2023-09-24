@@ -10,6 +10,7 @@ export function Amount(props: Props) {
     } = props;
 
     const currency = "$";
+    const amount = Number(props.children);
 
     return (
         <span
@@ -23,7 +24,7 @@ export function Amount(props: Props) {
                 otherProps.className
             )}
         >
-            {`${currency} ${children}`}
+            {`${currency} ${amount !== Math.trunc(amount) ? amount.toFixed(2) : amount}`}
         </span>
     );
 }

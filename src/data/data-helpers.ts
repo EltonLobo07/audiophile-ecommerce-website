@@ -189,6 +189,7 @@ export async function getProduct(args: DeepReadonly<{productSlug: string, catego
         | (
             Omit<Product, "others"> & 
             {
+                cartImage: string,
                 images: Record<Screen, string>,
                 gallery: Record<Screen, string>[],
                 others: {
@@ -226,7 +227,8 @@ export async function getProduct(args: DeepReadonly<{productSlug: string, catego
                 SCREEN,
                 `/images/shared/%r/${otherProduct.slug}.webp`
             )
-        }))
+        })),
+        cartImage: `/images/cart/${targetProduct.slug}.jpg`
     };
 }
 

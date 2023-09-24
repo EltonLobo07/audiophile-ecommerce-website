@@ -9,4 +9,7 @@ export type DeepReadonly<T> =
         ? {readonly [K in keyof T]: DeepReadonly<T[K]>} 
         : T;
 
-export type StateAndSetter<TState> = [TState, (newState: TState) => void];
+export type StateAndSetter<TState> = [
+  TState, 
+  (newState: TState | ((prevState: TState) => TState)) => void
+];

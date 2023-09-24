@@ -183,7 +183,12 @@ export default async function ProductPage(props: Props) {
                             {product.price}
                         </Amount>
                         <QuantityAndAddToCart
-                            productSlug = {props.params.product}
+                            product = {{
+                                name: product.shortName,
+                                image: product.cartImage,
+                                price: product.price,
+                                slug: product.slug
+                            }}
                             className = "tabAndUp:mb-auto"
                         />
                     </section>

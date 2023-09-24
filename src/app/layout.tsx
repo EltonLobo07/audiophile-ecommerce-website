@@ -55,16 +55,16 @@ export default function RootLayout(props: Props) {
 							}
 							className = "relative z-10"
 						/>
+						<main
+							className = {helpers.formatClassName(
+								`
+									flex-grow
+								`
+							)}
+						>
+							{props.children}
+						</main>
 					</ShowModalTypeContextProvider>
-					<main
-						className = {helpers.formatClassName(
-							`
-								flex-grow
-							`
-						)}
-					>
-						{props.children}
-					</main>
 				</CartContextProvider>
 				<RootFooter />
 			</body>
