@@ -8,6 +8,8 @@ import { RootFooter } from "~/components/RootFooter";
 import { ShowModalTypeContextProvider } from "~/components/ShowModalTypeContextProvider";
 import { CartContextProvider } from "~/components/CartContextProvider";
 import { CustomModal } from "~/components/CustomModal";
+import { RootCategoriesUnorderedList } from "~/components/RootCategoriesUnorderedList";
+import { dataHelpers } from "~/data/data-helpers";
 
 const manrope = Manrope({
 	subsets: ["latin"],
@@ -23,7 +25,9 @@ type Props = {
 	children: React.ReactNode
 };
 
-export default function RootLayout(props: Props) {
+export default async function RootLayout(props: Props) {
+	const rootCategoryNamesAndImages = await dataHelpers.getCategoryNamesAndImages();
+
 	return (
 		<html 
 			lang = "en"
@@ -51,6 +55,12 @@ export default function RootLayout(props: Props) {
 							rootHeader = {
 								<RootHeader
 									useCloseModalLink
+								/>
+							}
+							rootCategoryUnorderedList = {
+								<RootCategoriesUnorderedList 
+									useModalCloseLink
+									categoryNamesAndImages = {rootCategoryNamesAndImages}
 								/>
 							}
 							className = "relative z-10"

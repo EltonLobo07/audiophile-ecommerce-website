@@ -1,13 +1,13 @@
 "use client";
 
-// import React from "react";
 import { Dialog } from "@headlessui/react";
 import { useShowModalTypeContext } from "~/custom-hooks/useShowModalTypeContext";
 import { CartModalContent } from "~/components/CartModalContent";
-import { MaxWidthContainer } from "./MaxWidthContainer";
+import { RootNavModal } from "./RootNavModal";
 
 type Props = {
     rootHeader: JSX.Element,
+    rootCategoryUnorderedList: JSX.Element,
     className?: string
 };
 
@@ -34,7 +34,14 @@ export function CustomModal(props: Props) {
                 {
                     showModalType === "cart"
                     ? <CartModalContent {...commonContentModalProps} />
-                    : null
+                    : showModalType === "nav-menu"
+                      ? (
+                        <RootNavModal 
+                            {...commonContentModalProps}
+                            rootCategoryUnorderedList = {props.rootCategoryUnorderedList} 
+                        />
+                      )
+                      : null
                 }
                 <div
                     className = "fixed top-0 left-0 right-0"

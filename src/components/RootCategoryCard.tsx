@@ -3,9 +3,14 @@ import { CustomImage } from "~/components/CustomImage";
 import { CustomLink } from "~/components/CustomLink";
 import { ArrowRight } from "~/components/icons/ArrowRight";
 import Image from "next/image";
+import { CustomModalCloseLink } from "~/components/CustomModalCloseLink";
 
 type Props = {
-    category: {name: string, images: Record<"desktop" | "tablet" | "mobile", string>}
+    category: {
+        name: string, 
+        images: Record<"desktop" | "tablet" | "mobile", string>
+    },
+    useModalCloseLink?: boolean
 };
 
 function areAllPathsTheSame(images: Props["category"]["images"]) {
@@ -22,6 +27,7 @@ export function RootCategoryCard(props: Props) {
     );
     const nativeImgAlt = `sample from ${props.category.name} category`;
     const nativeImgClassName = "object-top";
+    const Link = props.useModalCloseLink ? CustomModalCloseLink : CustomLink;
 
     return (
         <li
@@ -95,7 +101,7 @@ export function RootCategoryCard(props: Props) {
                 >
                     {props.category.name}
                 </div>
-                <CustomLink
+                <Link
                     href = {`/categories/${props.category.name}`}
                     className = {helpers.formatClassName(
                         `
@@ -109,7 +115,7 @@ export function RootCategoryCard(props: Props) {
                 >
                     shop 
                     <ArrowRight />
-                </CustomLink>
+                </Link>
             </div>
         </li>
     );

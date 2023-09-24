@@ -7,6 +7,7 @@ import { Hamburger } from "~/components/icons/Hamburger";
 import { RootNav } from "~/components/RootNav";
 import { CartBtn } from "~/components/CartBtn";
 import { twMerge } from "tailwind-merge";
+import { RootHeaderNavDisplayer } from "./RootHeaderNavDisplayer";
 
 function HungryFlexItems() {
     return (
@@ -60,14 +61,26 @@ export function RootHeader(props: Props) {
                     <H1 />
                     <HungryFlexItems />
                     <BtnNavigation
-                        openContent = {<X />}
-                        closeContent = {<Hamburger />}
+                        openContent = {
+                            <X 
+                                aria-label = "close navigation menu"
+                            />
+                        }
+                        closeContent = {
+                            <Hamburger 
+                                aria-label = "open navigation menu"
+                            />
+                        }
                         className = "laptopAndUp:hidden"
                     />
                 </div>
-                <RootNav 
-                    useModalCloseLink = {props.useCloseModalLink}
-                    className = "hidden laptopAndUp:inline-block"
+                <RootHeaderNavDisplayer 
+                    rootNav = {
+                        <RootNav 
+                            useModalCloseLink = {props.useCloseModalLink}
+                            className = "hidden laptopAndUp:inline-block"
+                        />
+                    }
                 />
                 <CartBtn />
             </MaxWidthContainer>

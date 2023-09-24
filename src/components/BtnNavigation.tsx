@@ -14,11 +14,10 @@ export function BtnNavigation(props: Props) {
 
     return (
         <button
-            aria-label = "toggle navigation menu's visibility"
-            onClick = {() => setShowModalType(showModalType === "navigation" ? "none" : "navigation")}
+            onClick = {() => setShowModalType(showModalType === "nav-menu" ? "none" : "nav-menu")}
             className = {props.className}
         >
-            {showModalType === "navigation" ? props.openContent : props.closeContent}
+            {showModalType === "nav-menu" ? props.openContent : props.closeContent}
         </button>
     );
 }
