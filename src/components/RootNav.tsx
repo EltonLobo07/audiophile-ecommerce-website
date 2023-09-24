@@ -1,15 +1,24 @@
 import { twMerge } from "tailwind-merge";
 import { CustomLink } from "~/components/CustomLink";
 import { dataHelpers } from "~/data/data-helpers";
+import { CustomModalCloseLink } from "~/components/CustomModalCloseLink";
 
-type Props = Omit<JSX.IntrinsicElements["nav"], "children"> & {unorderedListClassName?: string};
+type Props = 
+    Omit<JSX.IntrinsicElements["nav"], "children"> & 
+    {
+        unorderedListClassName?: string,
+        useModalCloseLink?: boolean
+    };
 
 export async function RootNav(props: Props) {
     const categories = await dataHelpers.getCategories();
     const {
         unorderedListClassName,
+        useModalCloseLink,
         ...navProps
     } = props;
+
+    const Link = useModalCloseLink ? CustomModalCloseLink : CustomLink;
 
     return (
         <nav
@@ -26,22 +35,22 @@ export async function RootNav(props: Props) {
                 )}
             >
                 <li>
-                    <CustomLink
+                    <Link
                         href = "/"
                     >
                         home
-                    </CustomLink>
+                    </Link>
                 </li>
                 {
                     categories.map(category => (
                         <li
                             key = {category}
                         >
-                            <CustomLink
+                            <Link
                                 href = {`/categories/${category}`}
                             >
                                 {category}
-                            </CustomLink>
+                            </Link>
                         </li>
                     ))
                 }

@@ -7,6 +7,7 @@ import { RootHeader } from "~/components/RootHeader";
 import { RootFooter } from "~/components/RootFooter";
 import { ShowModalTypeContextProvider } from "~/components/ShowModalTypeContextProvider";
 import { CartContextProvider } from "~/components/CartContextProvider";
+import { CustomModal } from "~/components/CustomModal";
 
 const manrope = Manrope({
 	subsets: ["latin"],
@@ -43,7 +44,17 @@ export default function RootLayout(props: Props) {
 			>
 				<CartContextProvider>
 					<ShowModalTypeContextProvider>
-						<RootHeader />
+						<RootHeader 
+							className = "sticky top-0 z-10"
+						/>
+						<CustomModal 
+							rootHeader = {
+								<RootHeader
+									useCloseModalLink
+								/>
+							}
+							className = "relative z-10"
+						/>
 					</ShowModalTypeContextProvider>
 					<main
 						className = {helpers.formatClassName(

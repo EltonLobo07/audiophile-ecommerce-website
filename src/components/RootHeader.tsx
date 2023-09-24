@@ -6,6 +6,7 @@ import { X } from "~/components/icons/X";
 import { Hamburger } from "~/components/icons/Hamburger";
 import { RootNav } from "~/components/RootNav";
 import { CartBtn } from "~/components/CartBtn";
+import { twMerge } from "tailwind-merge";
 
 function HungryFlexItems() {
     return (
@@ -15,18 +16,23 @@ function HungryFlexItems() {
     );
 }
 
-export function RootHeader() {
+type Props = {
+    useCloseModalLink?: boolean,
+    className?: string
+};
+
+export function RootHeader(props: Props) {
     return (
         <header
-            className = {helpers.formatClassName(
-                `
-                    bg-chaos-black
-                    text-white
-                    flex-shrink-0
-                    sticky
-                    top-0 
-                    z-10
-                `
+            className = {twMerge(
+                helpers.formatClassName(
+                    `
+                        bg-chaos-black
+                        text-white
+                        flex-shrink-0
+                    `
+                ),
+                props.className
             )}
         >
             <MaxWidthContainer
@@ -60,6 +66,7 @@ export function RootHeader() {
                     />
                 </div>
                 <RootNav 
+                    useModalCloseLink = {props.useCloseModalLink}
                     className = "hidden laptopAndUp:inline-block"
                 />
                 <CartBtn />
