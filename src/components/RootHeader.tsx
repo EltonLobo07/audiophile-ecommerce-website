@@ -1,13 +1,13 @@
 import { helpers } from "~/helpers";
 import { MaxWidthContainer } from "~/components/MaxWidthContainer";
 import { H1 } from "~/components/H1";
-import { BtnNavigation } from "~/components/BtnNavigation";
 import { X } from "~/components/icons/X";
 import { Hamburger } from "~/components/icons/Hamburger";
 import { RootNav } from "~/components/RootNav";
 import { CartBtn } from "~/components/CartBtn";
 import { twMerge } from "tailwind-merge";
-import { RootHeaderNavDisplayer } from "./RootHeaderNavDisplayer";
+import { RootHeaderNavDisplayer } from "~/components/RootHeaderNavDisplayer";
+import { RootBtnNavigationWrapper } from "~/components/RootBtnNavigationWrapper";
 
 function HungryFlexItems() {
     return (
@@ -60,7 +60,7 @@ export function RootHeader(props: Props) {
                     <HungryFlexItems />
                     <H1 />
                     <HungryFlexItems />
-                    <BtnNavigation
+                    <RootBtnNavigationWrapper
                         openContent = {
                             <X 
                                 aria-label = "close navigation menu"
