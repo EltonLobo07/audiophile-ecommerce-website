@@ -96,7 +96,7 @@ export function CartItem(props: Props) {
                 <Amount
                     className = {helpers.formatClassName(
                         `
-                            cfont-cart-item-price
+                            cfont-modal-price
                             text-[#7F7F7F]
                         `
                     )}

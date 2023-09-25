@@ -29,7 +29,16 @@ function getNewLineIndices(text: string): number[] {
     return output;
 }
 
+function caculateCartTotal(cart: {price: number, quantity: number}[]): number {
+    const total = cart.reduce((acc, cartItem) => acc + cartItem.price * cartItem.quantity, 0);
+    if (Math.trunc(total) !== total) {
+        return Number(total.toFixed(2));
+    }
+    return total;
+}
+
 export const helpers = {
     formatClassName,
-    getNewLineIndices
+    getNewLineIndices,
+    caculateCartTotal
 };

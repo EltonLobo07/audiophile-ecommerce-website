@@ -61,15 +61,15 @@
     @apply font-sans font-medium text-[0.9375rem] leading-[1.5625rem];
   }
 
-  .cfont-cart-main {
+  .cfont-modal-main {
     @apply font-sans font-bold text-[0.9375rem] leading-[1.5625rem];
   }
 
-  .cfont-cart-item-price {
+  .cfont-modal-price {
     @apply font-sans font-bold text-[0.875rem] leading-[1.5625rem] tracking-normal;
   }
 
-  .cfont-cart-total-amount {
+  .cfont-modal-total-amount {
     @apply font-sans font-bold text-[1.125rem] leading-[1.5625rem] tracking-normal; 
   }
 }

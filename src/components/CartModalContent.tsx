@@ -137,9 +137,9 @@ export function CartModalContent(props: Props) {
                             total
                         </span>
                         <Amount
-                            className = "cfont-cart-total-amount"
+                            className = "cfont-modal-total-amount"
                         >
-                            {cart.reduce((acc, cartItem) => acc + cartItem.price * cartItem.quantity, 0)}
+                            {helpers.caculateCartTotal(cart)}
                         </Amount>
                     </div>
                     <CustomModalCloseLink
