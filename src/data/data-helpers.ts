@@ -97,7 +97,7 @@ async function getCategoryNamesAndImages(): Promise<{images: Record<Screen, stri
                         No "%r" in the string below to replace any screen dircetory as only one source
                         will be used for all screen sizes
                     */
-                    `/images/shared/desktop/category-thumbnail-${categoryName}.png`
+                    `/images/shared/desktop/category-thumbnail-${categoryName}.webp`
                 )
             });
         }
@@ -177,7 +177,7 @@ async function getProductsByCategory(category: string):
                     slug: product.slug,
                     images: getScreenSpecificPaths(
                         SCREEN,
-                        `/images/products/${product.slug}/%r/category-page-preview.jpg`
+                        `/images/products/${product.slug}/%r/category-page-preview.webp`
                     )
                 }
             ))
@@ -215,11 +215,11 @@ export async function getProduct(args: DeepReadonly<{productSlug: string, catego
         ...targetProduct,
         images: getScreenSpecificPaths(
             SCREEN,
-            `/images/products/${targetProduct.slug}/%r/product.jpg`
+            `/images/products/${targetProduct.slug}/%r/product.webp`
         ),
         gallery: new Array(3).fill(0).map((_value, idx) => getScreenSpecificPaths(
             SCREEN,
-            `/images/products/${targetProduct.slug}/%r/gallery-${idx + 1}.jpg`
+            `/images/products/${targetProduct.slug}/%r/gallery-${idx + 1}.webp`
         )),
         others: targetProduct.others.map(otherProduct => ({
             ...otherProduct,
@@ -228,7 +228,7 @@ export async function getProduct(args: DeepReadonly<{productSlug: string, catego
                 `/images/shared/%r/${otherProduct.slug}.webp`
             )
         })),
-        cartImage: `/images/cart/${targetProduct.slug}.jpg`
+        cartImage: `/images/cart/${targetProduct.slug}.webp`
     };
 }
 

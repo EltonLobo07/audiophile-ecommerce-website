@@ -1,6 +1,4 @@
-import { CheckoutCartSummary } from "~/components/CheckoutCartSummary";
 import { CheckoutClientCompsWrapper } from "~/components/CheckoutClientCompsWrapper";
-import { CheckoutForm } from "~/components/CheckoutForm";
 import { VisuallyHidden } from "~/components/VisuallyHidden";
 import { helpers } from "~/helpers";
 
