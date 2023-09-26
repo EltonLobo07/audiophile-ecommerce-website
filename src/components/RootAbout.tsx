@@ -103,7 +103,12 @@ export function RootAbout(props: Props) {
                     }}
                     nativeImgProps = {{
                         alt: "A person with headphones",
-                        className: "rounded-inherit"
+                        className: helpers.formatClassName(
+                            `
+                                rounded-inherit
+                                bg-grayish-white
+                            `
+                        )
                     }}
                     images = {{
                         desktop: BestGearDesktop.src,

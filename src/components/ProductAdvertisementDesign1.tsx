@@ -102,7 +102,7 @@ export function ProductAdvertisementDesign1(props: ProductAdvertisementProps) {
                     )
                 }}
                 nativeImgProps = {{
-                    alt: "",
+                    alt: `${props.product.name} sample`,
                     className: "object-contain"
                 }}
                 images = {props.product.images}

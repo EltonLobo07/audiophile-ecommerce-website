@@ -1,11 +1,15 @@
-import { CSSProperties } from "react";
+"use client";
+
+import React, { CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
 import { helpers } from "~/helpers";
 
 type Props = {
     nativePictureProps?: Omit<JSX.IntrinsicElements["picture"], "children">,
-    nativeImgProps: Omit<JSX.IntrinsicElements["img"], "src" | "alt"> & Record<"alt", string>,
-    images: Record<"desktop" | "tablet" | "mobile", string>
+    nativeImgProps: Omit<JSX.IntrinsicElements["img"], "src" | "alt" | "ref"> & Record<"alt", string>,
+    images: Record<"desktop" | "tablet" | "mobile", string>,
+    filterProps?: Omit<JSX.IntrinsicElements["div"], "children">,
+    isDecorative?: boolean
 };
 
 function getMinWidthMediaQuery(minWidth: CSSProperties["width"]) {
@@ -22,6 +26,34 @@ export function CustomImage(props: Props) {
         alt,
         ...otherNativeImgProps
     } = props.nativeImgProps;
+
+    const imgRef = React.useRef<HTMLImageElement | null>(null);
+    const [imageLoaded, setImageLoaded] = React.useState(false);
+
+    React.useEffect(() => {
+        const imgElement = imgRef.current;
+        if (!imgElement) {
+            return;
+        }
+        const eventName = "load";
+        const handleLoad = () => {
+            setImageLoaded(true);
+        };
+        imgElement.addEventListener(eventName, handleLoad);
+        return () => {
+            imgElement.removeEventListener(eventName, handleLoad);
+        };
+    }, []);
+
+    React.useEffect(() => {
+        const imgElement = imgRef.current;
+        if (!imgElement) {
+            return;
+        }
+        if (imgElement.complete) {
+            setImageLoaded(true);
+        }
+    }, []);
 
     return (
         <picture
@@ -45,6 +77,7 @@ export function CustomImage(props: Props) {
                 srcSet = {props.images.tablet}
             />
             <img 
+                ref = {imgRef}
                 alt = {alt}
                 {...otherNativeImgProps}
                 src = {props.images.mobile}
@@ -56,11 +89,26 @@ export function CustomImage(props: Props) {
                             left-0 top-0
                             object-cover
                             object-center
+                            ${props.isDecorative && !imageLoaded ? "invisible" : ""}
                         `
                     ),
                     props.nativeImgProps.className
                 )}
             />
+            {
+                props.filterProps && imageLoaded && (
+                    <div
+                        {...props.filterProps}
+                        className = {twMerge(helpers.formatClassName(
+                            `
+                                absolute
+                                w-full h-full
+                                left-0 top-0
+                            `
+                        ), props.filterProps.className)}
+                    ></div>
+                ) 
+            }
         </picture>
     );
 }

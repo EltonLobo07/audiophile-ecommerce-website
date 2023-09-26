@@ -57,7 +57,6 @@ export default async function ProductPage(props: Props) {
         category: props.params.category,
         productSlug: props.params.product
     }))) {
-        console.log("product layout not found");
         notFound();
     }
     const product = await dataHelpers.getProduct({
@@ -76,6 +75,7 @@ export default async function ProductPage(props: Props) {
     const secondaryDetailsSectionTitle = "secondary details";
     const imagesSectionTitle = "images of the product";
     const similarOrRelatedProductsSectionTitle = "similar or related products";
+    const galeryImageBgColor = "bg-grayish-white";
     const tabLaptopHeight = "tabAndUp:h-[30rem] laptopAndUp:h-[35rem]";
     const featureInTheBoxHeaderClassName = helpers.formatClassName(
         `
@@ -336,6 +336,7 @@ export default async function ProductPage(props: Props) {
                                         h-[174px] tabAndUp:h-[100px]
                                         tabAndUp:flex-grow
                                         rounded-[8px]
+                                        ${galeryImageBgColor}
                                     `
                                 )
                             }}
@@ -344,7 +345,6 @@ export default async function ProductPage(props: Props) {
                                 className: helpers.formatClassName(
                                     `
                                         rounded-inherit
-                                        
                                     `
                                 )
                             }}
@@ -358,6 +358,7 @@ export default async function ProductPage(props: Props) {
                                         h-[174px] tabAndUp:h-[100px]
                                         tabAndUp:flex-grow
                                         rounded-[8px]
+                                        ${galeryImageBgColor}
                                     `
                                 )
                             }}
@@ -380,6 +381,7 @@ export default async function ProductPage(props: Props) {
                                     tabAndUp:flex-grow-[1.75]
                                     h-[368px] tabAndUp:h-full
                                     rounded-[8px]
+                                    ${galeryImageBgColor}
                                 `
                             )
                         }}

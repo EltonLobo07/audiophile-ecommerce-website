@@ -27,7 +27,7 @@ export function ProductAdvertisementDesign2(props: ProductAdvertisementProps) {
                         absolute 
                         w-full h-full 
                         top-0 left-0 
-                        bg-black/30
+                        bg-black/25
                         z-10 
                         rounded-inherit
                     `
@@ -81,7 +81,7 @@ export function ProductAdvertisementDesign2(props: ProductAdvertisementProps) {
                     )
                 }}
                 nativeImgProps = {{
-                    alt: "",
+                    alt: `${props.product.name} sample`,
                     className: helpers.formatClassName(
                         `
                             object-bottom

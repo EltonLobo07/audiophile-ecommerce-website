@@ -64,7 +64,7 @@ export function CartItem(props: Props) {
                 height = {64}
                 className = {helpers.formatClassName(
                     `
-                        bg-gayish-white
+                        bg-grayish-white
                         object-contain object-center
                         rounded-[8px]
                     `

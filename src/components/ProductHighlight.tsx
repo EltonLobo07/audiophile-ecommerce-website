@@ -15,16 +15,6 @@ export async function ProductHighlight(props: Props) {
     const product = await dataHelpers.getHomePageProductHighlight();
     const sectionTitle = "Today's highlighted product";
 
-    const commonCustomImgAndShadowClassName = helpers.formatClassName(
-        `
-            max-w-[26rem]
-            tabAndUp:max-w-[50.75rem]
-            laptopAndUp:max-w-full
-            mx-auto laptopAndUp:mx-0
-            laptopAndUp:-translate-y-[7.5%]
-        `
-    );
-
     return (
         <section
             aria-label = {sectionTitle}
@@ -66,7 +56,11 @@ export async function ProductHighlight(props: Props) {
                             `
                                 absolute 
                                 inset-0
-                                ${commonCustomImgAndShadowClassName}
+                                max-w-[26rem]
+                                tabAndUp:max-w-[50.75rem]
+                                laptopAndUp:max-w-full
+                                mx-auto laptopAndUp:mx-0
+                                laptopAndUp:-translate-y-[7.5%]
                             `
                         )
                     }}
@@ -76,28 +70,21 @@ export async function ProductHighlight(props: Props) {
                             `
                                 object-cover
                                 object-bottom
+                                bg-chaos-black
                             `
                         )
                     }}
                     images = {product.images}
+                    filterProps = {{
+                        className: helpers.formatClassName(
+                            `
+                                bg-black 
+                                opacity-[0.325]
+                            `
+                        )
+                    }}
+                    isDecorative
                 />
-                {/*
-                    The below filter allows the image to blend with the background. 
-                    For everything to work properly, make sure the filter is just above
-                    the image all the time
-                */}
-                <div
-                    className = {helpers.formatClassName(
-                        `
-                            absolute 
-                            w-full h-full
-                            left-0 right-0
-                            bg-black opacity-[0.325]
-                            
-                            ${commonCustomImgAndShadowClassName}
-                        `
-                    )}
-                ></div>
                 <div
                     className = {helpers.formatClassName(
                         `

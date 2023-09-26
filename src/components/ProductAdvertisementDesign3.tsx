@@ -70,8 +70,13 @@ export function ProductAdvertisementDesign3(props: ProductAdvertisementProps) {
                     )
                 }}
                 nativeImgProps = {{
-                    alt: "",
-                    className: "rounded-inherit"
+                    alt: `${props.product.name} sample`,
+                    className: helpers.formatClassName(
+                        `
+                            rounded-inherit
+                            bg-grayish-white
+                        `
+                    )
                 }}
                 images = {props.product.images}
             />
