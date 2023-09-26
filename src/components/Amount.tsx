@@ -24,7 +24,7 @@ export function Amount(props: Props) {
                 otherProps.className
             )}
         >
-            {`${currency} ${amount !== Math.trunc(amount) ? amount.toFixed(2) : amount}`}
+            {currency}&nbsp;{amount !== Math.trunc(amount) ? amount.toFixed(2) : amount}
         </span>
     );
 }

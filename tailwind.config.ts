@@ -42,7 +42,9 @@ const config: Config = {
         "white": "#FFFFFF", // white
         "black": "#000000", // black
         "argent": "#888888",  // argent
-        "shady-character": "#4C4C4C" // shady character
+        "dark-red": "#CD2C2C", // hot lips
+        "shady-character": "#4C4C4C", // shady character
+        "american-silver": "#CFCFCF" // american silver
       }
     },
   },

@@ -11,7 +11,7 @@ type Props = {
 };
 
 export function ShowModalTypeContextProvider(props: Props) {
-    const [showModalType, setShowModalType] = React.useState<ShowModalType>("order-confirmation");
+    const [showModalType, setShowModalType] = React.useState<ShowModalType>("none");
 
     return (
         <ShowModalTypeContext.Provider

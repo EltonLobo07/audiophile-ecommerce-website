@@ -58,7 +58,7 @@
   }
 
   .cfont-body {
-    @apply font-sans font-medium text-[0.9375rem] leading-[1.5625rem];
+    @apply font-sans font-medium text-[0.9375rem] leading-[1.5625rem] tracking-normal;
   }
 
   .cfont-modal-main {
