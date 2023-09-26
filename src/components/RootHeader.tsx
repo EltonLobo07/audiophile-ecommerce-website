@@ -77,6 +77,7 @@ export function RootHeader(props: Props) {
                 <RootHeaderNavDisplayer 
                     rootNav = {
                         <RootNav 
+                            changeColorOfCurPathLink
                             useModalCloseLink = {props.useCloseModalLink}
                             className = "hidden laptopAndUp:inline-block"
                         />

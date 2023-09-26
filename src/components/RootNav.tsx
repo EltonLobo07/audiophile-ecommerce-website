@@ -7,7 +7,8 @@ type Props =
     Omit<JSX.IntrinsicElements["nav"], "children"> & 
     {
         unorderedListClassName?: string,
-        useModalCloseLink?: boolean
+        useModalCloseLink?: boolean,
+        changeColorOfCurPathLink?: boolean
     };
 
 export async function RootNav(props: Props) {
@@ -15,6 +16,7 @@ export async function RootNav(props: Props) {
     const {
         unorderedListClassName,
         useModalCloseLink,
+        changeColorOfCurPathLink,
         ...navProps
     } = props;
 
@@ -36,6 +38,7 @@ export async function RootNav(props: Props) {
             >
                 <li>
                     <Link
+                        changeColorOfCurPathLink = {props.changeColorOfCurPathLink}
                         href = "/"
                     >
                         home
@@ -47,6 +50,7 @@ export async function RootNav(props: Props) {
                             key = {category}
                         >
                             <Link
+                                changeColorOfCurPathLink = {props.changeColorOfCurPathLink}
                                 href = {`/categories/${category}`}
                             >
                                 {category}

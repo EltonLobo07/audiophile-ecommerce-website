@@ -1,7 +1,5 @@
 "use client";
 
-import { twMerge } from "tailwind-merge";
-import { RootNav } from "~/components/RootNav";
 import { useShowModalTypeContext } from "~/custom-hooks/useShowModalTypeContext";
 
 type Props = {
