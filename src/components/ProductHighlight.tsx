@@ -21,6 +21,7 @@ export async function ProductHighlight(props: Props) {
             tabAndUp:max-w-[50.75rem]
             laptopAndUp:max-w-full
             mx-auto laptopAndUp:mx-0
+            laptopAndUp:-translate-y-[7.5%]
         `
     );
 
@@ -73,6 +74,7 @@ export async function ProductHighlight(props: Props) {
                         alt: "",
                         className: helpers.formatClassName(
                             `
+                                object-cover
                                 object-bottom
                             `
                         )
@@ -90,7 +92,8 @@ export async function ProductHighlight(props: Props) {
                             absolute 
                             w-full h-full
                             left-0 right-0
-                            bg-black opacity-[0.375]
+                            bg-black opacity-[0.325]
+                            
                             ${commonCustomImgAndShadowClassName}
                         `
                     )}
