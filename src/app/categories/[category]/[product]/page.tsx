@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Amount } from "~/components/Amount";
 import { CustomImage } from "~/components/CustomImage";
 import { GoBackBtn } from "~/components/GoBackBtn";
@@ -52,6 +53,13 @@ function getFeatureParagraphsAndLineBreaks(text: string): JSX.Element[] {
 }
 
 export default async function ProductPage(props: Props) {
+    if (!(await dataHelpers.isProductOfCategoryPresent({
+        category: props.params.category,
+        productSlug: props.params.product
+    }))) {
+        console.log("product layout not found");
+        notFound();
+    }
     const product = await dataHelpers.getProduct({
         productSlug: props.params.product,
         category: props.params.category

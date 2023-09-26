@@ -232,11 +232,28 @@ export async function getProduct(args: DeepReadonly<{productSlug: string, catego
     };
 }
 
+async function isCategoryPresent(category: string): Promise<boolean> {
+    const targetCategory = category.toLowerCase();
+    const categories = await getCategories();
+    return Boolean(categories.find(category => category === targetCategory));
+}
+
+async function isProductOfCategoryPresent(args: DeepReadonly<{productSlug: string, category: string}>): Promise<boolean> {
+    const targetCategory = args.category.toLowerCase();
+    const targetProduct = args.productSlug.toLowerCase();
+    const products = await getProducts();
+    return Boolean(products.find(product => (
+        product.slug === targetProduct && product.category === targetCategory
+    )));
+}
+
 export const dataHelpers = {
     getCategories,
     getHomePageProductHighlight,
     getCategoryNamesAndImages,
     getProductsToAdvertise,
     getProductsByCategory,
-    getProduct
+    getProduct,
+    isCategoryPresent,
+    isProductOfCategoryPresent
 };
