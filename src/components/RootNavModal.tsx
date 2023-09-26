@@ -13,9 +13,11 @@ export function RootNavModal(props: Props) {
             className = {helpers.formatClassName(
                 `
                     fixed
-                    top-[calc(2*32px+1.5625rem)]
+                    top-[calc(2*var(--header-v-pad)+var(--header-max-font-height))]
+                    laptopAndUp:top-[calc(2*var(--header-laptopAndUp-v-pad)+var(--header-max-font-height))]
                     w-full
-                    max-h-[calc(calc(100%-68px)-1.5625rem)]
+                    max-h-[calc(calc(100%-calc(2*var(--header-v-pad)))-var(--header-max-font-height))]
+                    laptopAndUp:max-h-[calc(calc(100%-calc(2*var(--header-laptopAndUp-v-pad)))-var(--header-max-font-height))]
                     overflow-y-auto
                     bg-white
                     rounded-b-2

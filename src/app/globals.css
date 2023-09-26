@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --header-v-pad: 32px;
+  --header-laptopAndUp-v-pad: 36px;
+  --header-max-font-height: 1.5625rem;
+}
+
 @layer utilities {
   /*
       https://stackoverflow.com/questions/12699800/smarter-word-break-in-css#:~:text=For%20smart%20word%20breaks%2C%20or,line%20when%20a%20break%20occurs.

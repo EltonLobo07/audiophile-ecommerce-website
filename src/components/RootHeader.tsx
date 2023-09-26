@@ -42,7 +42,7 @@ export function RootHeader(props: Props) {
                         flex 
                         justify-between 
                         items-center
-                        py-[32px] laptopAndUp:py-[36px]
+                        py-[var(--header-v-pad)] laptopAndUp:py-[var(--header-laptopAndUp-v-pad)]
                         overflow-x-auto
                     `
                 )}
