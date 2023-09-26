@@ -37,8 +37,13 @@ function caculateCartTotal(cart: {price: number, quantity: number}[]): number {
     return total;
 }
 
+function addBrandDetails(text: string): string {
+    return `${text} | Audiophile shop`;
+}
+
 export const helpers = {
     formatClassName,
     getNewLineIndices,
-    caculateCartTotal
+    caculateCartTotal,
+    addBrandDetails
 };

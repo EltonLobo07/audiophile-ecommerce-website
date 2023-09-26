@@ -1,7 +1,13 @@
+import { Metadata } from "next";
 import { ProductAdvertisements } from "~/components/ProductAdvertisements";
 import { ProductHighlight } from "~/components/ProductHighlight";
 import { RootAbout } from "~/components/RootAbout";
 import { RootCategories } from "~/components/RootCategories";
+import { helpers } from "~/helpers";
+
+export const metadata: Metadata = {
+	title: helpers.addBrandDetails("Modern audio gadgets")
+};
 
 export default function Page() {
 	return (

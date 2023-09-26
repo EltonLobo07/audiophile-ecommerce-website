@@ -1,6 +1,11 @@
+import { Metadata } from "next";
 import { CheckoutClientCompsWrapper } from "~/components/CheckoutClientCompsWrapper";
 import { VisuallyHidden } from "~/components/VisuallyHidden";
 import { helpers } from "~/helpers";
+
+export const metadata: Metadata = {
+    title: helpers.addBrandDetails("Checkout")
+};
 
 export default function CheckoutPage() {
     const mainSectionTitle = "checkout and cart summary";

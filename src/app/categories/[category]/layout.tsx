@@ -1,7 +1,9 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { RootAbout } from "~/components/RootAbout";
 import { RootCategories } from "~/components/RootCategories";
 import { dataHelpers } from "~/data/data-helpers";
+import { helpers } from "~/helpers";
 
 type Props = {
     params: {
@@ -10,9 +12,13 @@ type Props = {
     children: React.ReactNode
 };
 
+export async function generateMetadata(props: Props): Promise<Metadata> {
+    return {
+        title: helpers.addBrandDetails(props.params.category)
+    };
+}
+
 export default async function CategoryLayout(props: Props) {
-    console.log(props.params.category);
-    console.log(await dataHelpers.isCategoryPresent(props.params.category));
     if (!(await dataHelpers.isCategoryPresent(props.params.category))) {
         notFound();
     }
