@@ -10,7 +10,7 @@ export function Cart(props: Props) {
             fill = "currentColor"
             {...props}
             className = {twMerge(
-                "w-[1.4375rem] h-5",
+                "w-[23px] h-[20px]",
                 props.className
             )}
         >

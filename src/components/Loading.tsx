@@ -10,6 +10,7 @@ type Props = {
     children: string,
     showLoadingMessage?: boolean,
     showLoadedMessage?: boolean,
+    loaderClassName?: string,
     className?: string
 };
 
@@ -33,7 +34,10 @@ export function Loading(props: Props) {
                 props.loading && (
                     <Loader
                         aria-hidden 
-                        className = "animate-spin"
+                        className = {twMerge(
+                            "animate-spin",
+                            props.loaderClassName
+                        )}
                     />   
                 )
             }
