@@ -136,7 +136,7 @@ export function OrderConfirmationModalContent(props: Props) {
                                         text-[0.9375rem] 
                                         leading-[1.5625rem]
                                         tracking-normal
-                                        text-[#7F7F7F]
+                                        text-platinum-granite
                                         mb-2
                                     `
                                 )}

@@ -442,7 +442,7 @@ export function CheckoutForm(props: Props) {
                                 className = {helpers.formatClassName(
                                     `
                                         cfont-body
-                                        text-[#7F7F7F]
+                                        text-platinum-granite
                                     `
                                 )}
                             >

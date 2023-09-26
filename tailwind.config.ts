@@ -44,7 +44,8 @@ const config: Config = {
         "argent": "#888888",  // argent
         "dark-red": "#CD2C2C", // hot lips
         "shady-character": "#4C4C4C", // shady character
-        "american-silver": "#CFCFCF" // american silver
+        "american-silver": "#CFCFCF", // american silver
+        "platinum-granite": "#7F7F7F" // platinum granite
       }
     },
   },

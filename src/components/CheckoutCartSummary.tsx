@@ -30,7 +30,7 @@ export function CheckoutCartSummary(props: Props) {
             const shipping = 50;
             const vat = cartTotal * 0.2;
             const grandTotal = cartTotal + vat + shipping;
-            const dtClassName = "cfont-body uppercase text-[#7F7F7F]";
+            const dtClassName = "cfont-body uppercase text-platinum-granite";
             const ddClassName = "cfont-modal-total-amount";
             const dtDlClassName = "flex justify-between gap-x-2 overflow-x-auto";
             cartContent = (
@@ -104,7 +104,7 @@ export function CheckoutCartSummary(props: Props) {
                                                 className = {helpers.formatClassName(
                                                     `
                                                         relative
-                                                        text-[#7F7F7F]
+                                                        text-platinum-granite
                                                     `
                                                 )}
                                             >
@@ -127,7 +127,7 @@ export function CheckoutCartSummary(props: Props) {
                                             className = {helpers.formatClassName(
                                                 `
                                                     cfont-modal-price
-                                                    text-[#7F7F7F]
+                                                    text-platinum-granite
                                                 `
                                             )}
                                         >

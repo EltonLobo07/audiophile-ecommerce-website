@@ -27,7 +27,7 @@ export function CartModalContent(props: Props) {
 
     let cartItemsContent: JSX.Element = (
         <div 
-            className = "cfont-body text-[#7F7F7F]"
+            className = "cfont-body text-platinum-granite"
         >
             No items in the cart
         </div>
@@ -72,7 +72,7 @@ export function CartModalContent(props: Props) {
                         className = {helpers.formatClassName(
                             `
                                 cfont-body
-                                text-[#7F7F7F] hover:text-dark-orange
+                                text-platinum-granite hover:text-dark-orange
                                 underline
                                 decoration-[1px]
                             `
@@ -130,7 +130,7 @@ export function CartModalContent(props: Props) {
                                     text-[0.9375rem] 
                                     leading-[1.5625rem]
                                     uppercase
-                                    text-[#7F7F7F]
+                                    text-platinum-granite
                                 `
                             )}
                         >

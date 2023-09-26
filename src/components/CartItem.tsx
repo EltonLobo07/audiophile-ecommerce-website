@@ -97,7 +97,7 @@ export function CartItem(props: Props) {
                     className = {helpers.formatClassName(
                         `
                             cfont-modal-price
-                            text-[#7F7F7F]
+                            text-platinum-granite
                         `
                     )}
                 >

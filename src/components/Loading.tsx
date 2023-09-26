@@ -49,7 +49,7 @@ export function Loading(props: Props) {
                     `
                         relative
                         cfont-body
-                        text-[#7F7F7F]
+                        text-platinum-granite
                     `
                 )}
             >
