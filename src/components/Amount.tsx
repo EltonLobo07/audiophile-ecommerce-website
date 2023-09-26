@@ -9,8 +9,13 @@ export function Amount(props: Props) {
         ...otherProps
     } = props;
 
-    const currency = "$";
     const amount = Number(props.children);
+    const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+    });
 
     return (
         <span
@@ -24,7 +29,7 @@ export function Amount(props: Props) {
                 otherProps.className
             )}
         >
-            {currency}&nbsp;{amount !== Math.trunc(amount) ? amount.toFixed(2) : amount}
+            {formatter.format(amount)}
         </span>
     );
 }
