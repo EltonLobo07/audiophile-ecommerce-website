@@ -12,6 +12,7 @@ type Props = {
 export function AddToOrRemoveFromCartBtn(props: Props) {
     return (
         <button
+            type = "button"
             onClick = {props.onClick}
             className = {twMerge(
                 helpers.formatClassName(

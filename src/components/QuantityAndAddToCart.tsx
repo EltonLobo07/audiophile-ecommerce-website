@@ -131,7 +131,9 @@ export function QuantityAndAddToCart(props: Props) {
                     `
                         flex
                         gap-x-4
+                        gap-y-2
                         items-center
+                        flex-wrap
                     `
                 )}
             >

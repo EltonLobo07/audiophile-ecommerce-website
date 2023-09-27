@@ -10,7 +10,7 @@ export function Twitter(props: Props) {
             fill = "currentColor"
             {...props}
             className = {twMerge(
-                "w-6 h-6",
+                "w-[24px] h-[24px]",
                 props.className
             )}
         >

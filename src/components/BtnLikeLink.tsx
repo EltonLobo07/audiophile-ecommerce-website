@@ -14,7 +14,9 @@ export function BtnLikeLink(props: Props) {
                         px-[1.875rem]
                         py-[0.9375rem]
                         text-white
-                        cfont-subtitle
+                        font-sans 
+                        font-bold 
+                        cfont-btn
                     `
                 ),
                 props.className

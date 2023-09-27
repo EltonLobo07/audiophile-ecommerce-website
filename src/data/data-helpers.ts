@@ -255,5 +255,6 @@ export const dataHelpers = {
     getProductsByCategory,
     getProduct,
     isCategoryPresent,
-    isProductOfCategoryPresent
+    isProductOfCategoryPresent,
+    getProducts
 };

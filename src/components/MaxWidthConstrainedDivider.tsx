@@ -13,7 +13,7 @@ export function MaxWidthConstrainedDivider(props: Props) {
                     `   
                         absolute top-0 left-0 right-0
                         h-[1px] 
-                        bg-black-suede
+                        bg-[#333333]
                     `
                 ),
                 props.className

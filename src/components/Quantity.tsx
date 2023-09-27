@@ -1,7 +1,5 @@
 "use client";
 
-import { Minus } from "~/components/icons/Minus";
-import { Plus } from "~/components/icons/Plus";
 import { helpers } from "~/helpers";
 import { VisuallyHidden } from "~/components/VisuallyHidden";
 import { twMerge } from "tailwind-merge";
@@ -28,7 +26,6 @@ export function Quantity(props: Props) {
         ),
         props.btnClassName
     );
-    const commonIconClassName = "w-4 h-[1.125rem]";
 
     return (
         <div

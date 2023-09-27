@@ -158,6 +158,7 @@ export default async function ProductPage(props: Props) {
                                 ${tabLaptopHeight}
                                 tabAndUp:overflow-y-auto
                                 mb-[5.5rem] tabAndUp:mb-[7.5rem] laptopAndUp:mb-40
+                                p-[4px]
                             `
                         )}
                     >

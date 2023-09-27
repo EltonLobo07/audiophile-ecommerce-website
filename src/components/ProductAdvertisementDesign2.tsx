@@ -27,7 +27,7 @@ export function ProductAdvertisementDesign2(props: ProductAdvertisementProps) {
                         absolute 
                         w-full h-full 
                         top-0 left-0 
-                        bg-black/25
+                        bg-black/20
                         z-10 
                         rounded-inherit
                     `

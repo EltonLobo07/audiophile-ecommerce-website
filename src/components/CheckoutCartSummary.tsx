@@ -213,11 +213,12 @@ export function CheckoutCartSummary(props: Props) {
                                 className = {helpers.formatClassName(
                                     `
                                         ${dtClassName}
-                                        text-dark-orange
                                     `
                                 )}
                             >
-                                <Amount>
+                                <Amount
+                                    className = "text-dark-orange"
+                                >
                                     {grandTotal}
                                 </Amount>
                             </dd>
@@ -229,7 +230,7 @@ export function CheckoutCartSummary(props: Props) {
                             `
                                 bg-dark-orange hover:bg-light-orange
                                 text-white
-                                cfont-subtitle
+                                cfont-btn
                                 px-[15px]
                                 py-[0.9375rem]
                                 w-full

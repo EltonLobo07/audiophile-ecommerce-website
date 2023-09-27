@@ -68,6 +68,7 @@ export function CategoryPageProduct(props: Props) {
                         text-wrap
                         ${laptopRowHeight}
                         laptopAndUp:overflow-y-auto
+                        p-[4px]
                     `
                 )}
             >

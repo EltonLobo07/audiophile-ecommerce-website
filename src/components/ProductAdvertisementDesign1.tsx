@@ -54,6 +54,7 @@ export function ProductAdvertisementDesign1(props: ProductAdvertisementProps) {
                         laptopAndUp:max-h-[calc(30.8125rem-1.5rem)]
                         laptopAndUp:overflow-y-auto
                         laptopAndUp:translate-y-6
+                        p-[4px]
                     `                    
                 )}
             >
@@ -78,7 +79,7 @@ export function ProductAdvertisementDesign1(props: ProductAdvertisementProps) {
                     {props.product.description}
                 </p>
                 <BtnLikeLink
-                    href = {`/${props.product.category}/${props.product.slug}`}
+                    href = {`/categories/${props.product.category}/${props.product.slug}`}
                     className = {helpers.formatClassName(
                         `
                             bg-black hover:bg-shady-character

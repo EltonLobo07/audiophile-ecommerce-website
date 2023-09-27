@@ -146,7 +146,7 @@ export function CheckoutForm(props: Props) {
             <h3
                 className = {helpers.formatClassName(
                     `
-                        cfont-h3
+                        cfont-h4 tabAndUp:cfont-h3
                         text-black
                         mb-8 tabAndUp:mb-10
                     `

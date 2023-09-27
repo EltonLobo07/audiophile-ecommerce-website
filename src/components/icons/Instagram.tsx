@@ -10,7 +10,7 @@ export function Instagram(props: Props) {
             viewBox = "0 0 24 24"
             {...props}
             className = {twMerge(
-                "w-6 h-6",
+                "w-[24px] h-[24px]",
                 props.className
             )}
         >

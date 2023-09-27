@@ -149,7 +149,7 @@ export function CartModalContent(props: Props) {
                               bg-dark-orange hover:bg-light-orange
                               text-white hover:text-white
                                 text-center
-                                cfont-subtitle
+                                cfont-btn
                                 py-[0.9375rem]
                                 px-[15px]
                             `

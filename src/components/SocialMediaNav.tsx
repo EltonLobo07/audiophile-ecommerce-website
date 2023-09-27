@@ -5,7 +5,7 @@ import { Twitter } from "~/components/icons/Twitter";
 type Props = Omit<JSX.IntrinsicElements["nav"], "children">;
 
 export function SocialMediaNav(props: Props) {
-    const socialMediaIconsCommonName = "w-6 h-6 cursor-pointer text-white hover:text-dark-orange";
+    const socialMediaIconsCommonName = "w-[24px] h-[24px] cursor-pointer text-white hover:text-dark-orange";
     const anchorTargetAttr = "_blank";
 
     return (
@@ -13,7 +13,7 @@ export function SocialMediaNav(props: Props) {
             {...props}
         >
             <ul
-                className = "flex gap-x-4"
+                className = "flex gap-x-[16px]"
             >
                 <li>
                     <a

@@ -97,7 +97,8 @@ export async function ProductHighlight(props: Props) {
                             mx-auto laptopAndUp:mx-0
                             my-auto
                             max-h-full overflow-y-auto
-                            tabAndUp:max-w-[min(100%,25rem)]
+                            tabAndUp:max-w-[min(100%,25.5rem)]
+                            p-[4px]
                         `
                     )}
                 >
