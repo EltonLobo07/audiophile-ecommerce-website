@@ -9,6 +9,7 @@ import { Amount } from "~/components/Amount";
 import { useCartContext } from "~/custom-hooks/useCartContext";
 import { Loading } from "~/components/Loading";
 import Image from "next/image";
+import { useShowModalTypeContext } from "~/custom-hooks/useShowModalTypeContext";
 
 type Props = {
     Title: typeof Dialog.Title,
@@ -21,13 +22,18 @@ export function OrderConfirmationModalContent(props: Props) {
         Description
     } = props;
 
-    const [cart] = useCartContext();
+    const [cart, setCart] = useCartContext();
+    const [showModalType, setShowModalType] = useShowModalTypeContext();
 
     const loading = !Boolean(cart);
     const firstCartItem = cart?.[0];
     const backToHomeBtn = (
         <CustomModalCloseLink
             href = "/"
+            onClick = {() => {
+                setShowModalType("none");
+                setCart([]);
+            }}
             className = {helpers.formatClassName(
                 `
                     py-[0.9375rem]
