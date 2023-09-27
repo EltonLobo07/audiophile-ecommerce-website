@@ -4,6 +4,11 @@ import { MaxWidthContainer } from "~/components/MaxWidthContainer";
 import { dataHelpers } from "~/data/data-helpers";
 import { helpers } from "~/helpers";
 
+export async function generateStaticParams() {
+    const categories = await dataHelpers.getCategories();
+    return categories.map(category => ({category}));
+}
+
 type Props = {
     params: {
         category: string

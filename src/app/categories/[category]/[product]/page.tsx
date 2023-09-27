@@ -9,6 +9,14 @@ import { VisuallyHidden } from "~/components/VisuallyHidden";
 import { dataHelpers } from "~/data/data-helpers";
 import { helpers } from "~/helpers";
 
+export async function generateStaticParams() {
+    const products = await dataHelpers.getProducts();
+    return products.map(product => ({
+        category: product.category,
+        product: product.slug
+    }))
+}
+
 type Props = {
     params: {
         category: string,
